@@ -1,0 +1,7 @@
+#FIXME : Abstract this to the `zshrc.d`
+# Store the listen node for this execution
+DEFAULT_OUT_ALSA="alsa_output.pci"
+PW_NODE_MIC="REAPER"
+PW_NODE_SINK="Private"
+
+. pwQuickDetect # sets PW_NODE_LISTEN

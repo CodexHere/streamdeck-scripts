@@ -1,0 +1,3 @@
+sendmidi dev "Midi Through Port-0" cc 127 127
+
+ckb-next -m "Muted" &

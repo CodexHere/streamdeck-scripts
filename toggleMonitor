@@ -1,0 +1,5 @@
+#!/bin/bash
+
+. detectOutNode
+
+pwQuickConnect $PW_NODE_MIC $PW_NODE_LISTEN $1

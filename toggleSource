@@ -1,0 +1,21 @@
+#!/bin/bash
+
+sourceItemName=$1
+enable=$2
+
+toggleState="$([[ -z $enable ]] && echo 'hide' || echo 'show')"
+
+scenes="$(obs-cli scene list)"
+
+echo "Toggling $sourceItemName to $toggleState ($enable)"
+
+# Iterate over all scenes, show/hide-ing the `$sourceItemName`
+# should it exist
+# Ignores Errors!
+while IFS= read -r sceneName; do
+  obs-cli sceneitem \
+    $toggleState \
+    "$sceneName" \
+    "$sourceItemName" \
+    2&> /dev/null
+done <<< "$scenes"
