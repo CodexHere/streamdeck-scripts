@@ -1,0 +1,3 @@
+#!/bin/bash
+
+obs-ws-http SetCurrentProgramScene "{ \"sceneName\": \"$1\" }"

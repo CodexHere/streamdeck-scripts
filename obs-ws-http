@@ -1,0 +1,8 @@
+#!/bin/bash
+
+HOST_OBS_WS_HTTP="nfgarmy.local:4456"
+
+curl -s -X POST \
+  "http://$HOST_OBS_WS_HTTP/call/$1" \
+  --header 'Content-Type: application/json' \
+  --data-raw "$2"

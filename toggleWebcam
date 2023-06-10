@@ -3,13 +3,5 @@
 enable="$([ -z "$1" ] && echo "" || echo "1")"
 notEnable="$([ -z "$enable" ] && echo "1" || echo "")"
 
-# Inverted toggle for Robot Replacements
-toggleSource "overlay_end_b.png" $notEnable
-
 # Disable WebCams in Boxes
-toggleSource "WebCam Mask" $enable
-toggleSource "WebCam Mask 2" $enable
-
-# Disable WebCams in Circles
-toggleSource "Assets - WebCam - Circle" $enable
-toggleSource "Assets - WebCam - Circle (Inverted)" $enable
+toggleSource "Component - WebCam" $enable

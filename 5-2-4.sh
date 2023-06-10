@@ -1,16 +1,14 @@
 # Button: Wrap Up Stream
 
-obs-cli scene switch "Ending" &
+switchToScene "End" &
 mic-mute
 toggleWebcam
 
-notify-send -h int:transient:1 "Microphone Mute" "Muted"
-
-smoothVolume Music 0.6 1000 &
+smoothVolume Music 0.6 1250 &
 
 sleep 15
 
-obs-cli stream stop
+obs-ws-http StopStream
 notify-send -h int:transient:1 "Stream Status" "Disconnected!"
 
 music-mute

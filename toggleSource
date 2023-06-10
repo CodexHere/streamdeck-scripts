@@ -3,19 +3,17 @@
 sourceItemName=$1
 enable=$2
 
-toggleState="$([[ -z $enable ]] && echo 'hide' || echo 'show')"
+toggleState="$([[ -z $enable ]] && echo 'false' || echo 'true')"
 
-scenes="$(obs-cli scene list)"
+scenes=$(obs-ws-http GetSceneList | jq -r '.requestResult.responseData.scenes[] | .sceneName')
 
-echo "Toggling $sourceItemName to $toggleState ($enable)"
-
-# Iterate over all scenes, show/hide-ing the `$sourceItemName`
-# should it exist
-# Ignores Errors!
+# Iterate over all scenes, show/hide-ing the `$sourceItemName` should it exist
 while IFS= read -r sceneName; do
-  obs-cli sceneitem \
-    $toggleState \
-    "$sceneName" \
-    "$sourceItemName" \
-    2&> /dev/null
+  sceneItemId=$(obs-ws-http GetSceneItemId "{ \"sceneName\": \"$sceneName\", \"sourceName\":\"$sourceItemName\" }" | jq -e -r '.requestResult.responseData.sceneItemId')
+
+  (( $? != 0 )) && continue;
+
+  echo -e "Toggling '$sceneName' -> '$sourceItemName' to $toggleState ($enable)\n"
+  
+  obs-ws-http SetSceneItemEnabled "{ \"sceneName\": \"$sceneName\", \"sceneItemId\": $sceneItemId, \"sceneItemEnabled\": $toggleState }"
 done <<< "$scenes"
