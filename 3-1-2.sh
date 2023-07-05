@@ -22,7 +22,13 @@ sleep 1
 xdg-open 'https://play.pretzel.rocks/'
 
 # OBS!
-flatpak run com.obsproject.Studio &
-sleep 5
+# Run `reaper` if it isn't already
+flatpak ps | grep obs
+(( $? != 0 )) && flatpak run com.obsproject.Studio &
+ssh nfgarmy.local docker restart obs-ws_toxicice
+sleep 5 
 toggleWebcam 1
 switchToScene "Starting Soon"
+
+# Open VSCode to edit our Ticker Text
+code /media/NFG_GDrive_NFG/NFG\ Graphics/Streaming_Redux/Overlay/web/overlay-ticker/ticker.txt
