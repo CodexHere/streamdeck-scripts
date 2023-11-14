@@ -1,0 +1,7 @@
+#!/bin/bash
+
+sourceName=$1
+filterName="$([ -z "$2" ] && echo "Fade Out" || echo "Fade In")"
+
+# Execute Filter to fade in/out source
+obs-ws-http SetSourceFilterEnabled "{ \"sourceName\": \"$sourceName\", \"filterName\": \"$filterName\", \"filterEnabled\": true }"

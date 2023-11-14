@@ -1,6 +1,7 @@
 # Button: Transparent BRB
 
-# Do same as 4-1-4
-4-1-4.sh
+mic-mute
 
 switchToScene "BRB Transparent" &
+
+music-brb

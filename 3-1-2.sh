@@ -25,8 +25,9 @@ xdg-open 'https://play.pretzel.rocks/'
 # Run `reaper` if it isn't already
 flatpak ps | grep obs
 (( $? != 0 )) && flatpak run com.obsproject.Studio &
+sleep 10 
 ssh nfgarmy.local docker restart obs-ws_toxicice
-sleep 5 
+sleep 5
 toggleWebcam 1
 switchToScene "Starting Soon"
 
