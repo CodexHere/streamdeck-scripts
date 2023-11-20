@@ -1,0 +1,1 @@
+switchToScene "Starting Soon"
