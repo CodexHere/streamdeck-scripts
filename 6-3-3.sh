@@ -8,3 +8,6 @@ filterName="Source Record"
 obs-ws-http SetSourceFilterEnabled "{ \"sourceName\": \"$sourceName1\", \"filterName\": \"$filterName\", \"filterEnabled\": true }"
 
 obs-ws-http SetSourceFilterEnabled "{ \"sourceName\": \"$sourceName2\", \"filterName\": \"$filterName\", \"filterEnabled\": true }"
+
+# Start Recording
+sendmidi dev "Midi Through Port-0" cc 125 127

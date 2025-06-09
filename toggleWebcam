@@ -1,3 +1,8 @@
 #!/bin/bash
 
 toggleFilterFade "Component - WebCam" "$1"
+toggleFilterFade "Component - WebCam Full Width" "$1"
+
+message="$([ -z "$1" ] && echo "webcam-availability-disable" || echo "webcam-availability-enable")"
+
+obs-ws-http CallVendorRequest "{\"vendorName\":\"AdvancedSceneSwitcher\",\"requestType\":\"AdvancedSceneSwitcherMessage\",\"requestData\":{\"message\":\"$message\"}}"

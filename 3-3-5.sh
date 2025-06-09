@@ -9,4 +9,4 @@ ckb-next -m "Standard" &
 
 notify-send -h int:transient:1 "Stream Status" "On Air!"
 
-switchToScene "Live"
+switchToScene "Me Big"

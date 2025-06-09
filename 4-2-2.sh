@@ -1,6 +1,6 @@
 # Button: UnPixelate
 
-sourceName="Desktop Capture (XSHM)"
+sourceName="Component - Display"
 filterName="UnPixelate"
 
 # Execute Filter to UnPixelate source

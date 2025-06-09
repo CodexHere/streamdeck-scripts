@@ -12,6 +12,9 @@ flatpak ps | grep qpwgraph
 ps ux | grep reaper | grep -v grep
 (( $? != 0 )) && reaper &
 
+# Open Music (Remote)
+REMOTE_EXEC "google-chrome 'https://www.youtube.com/watch?v=lIrJ7vTMNOc&list=ULcxqQ59vzyTk'" &
+
 # Open Chat Popout
 google-chrome --new-window 'https://www.twitch.tv/popout/CodexHere/chat?popout=' &
 sleep 1
@@ -21,10 +24,13 @@ google-chrome 'https://dashboard.twitch.tv/u/CodexHere/stream-manager' &
 sleep 1
 xdg-open 'https://play.pretzel.rocks/'
 
+# Start MIDI Control Overlay
+/media/NFG_GDrive_NFG/CodexHere/Web/midi-control/dockerStart.sh
+
 # OBS!
 # Run `reaper` if it isn't already
-flatpak ps | grep obs
-(( $? != 0 )) && flatpak run com.obsproject.Studio &
+ps aux | grep -v grep | grep obs
+(( $? != 0 )) && obs &
 sleep 10 
 ssh nfgarmy.local docker restart obs-ws_toxicice
 sleep 5

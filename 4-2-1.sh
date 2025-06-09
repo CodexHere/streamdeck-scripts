@@ -1,6 +1,6 @@
 # Button: Pixelate
 
-sourceName="Desktop Capture (XSHM)"
+sourceName="Component - Display"
 filterName="Pixelate"
 
 # Execute Filter to Pixelate source
