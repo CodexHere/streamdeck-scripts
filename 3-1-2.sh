@@ -17,7 +17,7 @@ rm ~/.local/share/recently-used.xbel
 rm /tmp/.motd_shown_*
 
 # Open Chat Popout
-google-chrome --new-window 'https://www.twitch.tv/popout/CodexHere/chat?popout=' &
+google-chrome --new-window --app="https://www.twitch.tv/popout/CodexHere/chat?popout=" &
 # Start MIDI Control Overlay (opens browser window)
 /media/NFG_GDrive_NFG/CodexHere/Web/midi-control/dockerStart.sh
 
